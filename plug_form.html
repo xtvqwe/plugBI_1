@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #main {
+            width: 15%;
+            padding: 5px;
+            margin-right: 1%;
+            min-height: 700px;
+            background-color: #58585885;
+            display: inline;
+            float: left;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            position: relative;
+        }
+
+        .ele {
+            width: 75%;
+            left: 0%;
+            top:0%;
+            display: inline;
+            float: left;
+            position: relative;
+        }
+
+        .object{
+            width: 75%;
+            left: 0%;
+            top:0%;
+            padding: 5px;
+            min-height: 25px;
+            background-color: #FFFFF0;
+            margin: 5px;
+            display: inline;
+            float: left;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            position: relative;
+        }
+
+        .col{
+            display: block;
+            float: left;
+            width: 90%;
+            height: 20px;
+            margin: 1px;
+            padding: 1px;
+            list-style: none;
+            background-color: #ffffff;
+            border: 1px solid #bbb;
+            margin-bottom: 10px;
+            -moz-user-select: none;
+            user-select: none;
+            text-indent: 10px;
+            color: #555;
+            position: relative;
+        }
+        .newcol {
+            display: block;
+            float: left;
+            height: 20px;
+            margin: 1px;
+            padding: 1px;
+            list-style: none;
+            background-color: #ffffff;
+            border: 1px solid #bbb;
+            margin-bottom: 10px;
+            -moz-user-select: none;
+            user-select: none;
+            text-indent: 10px;
+            color: #555;
+            position: relative;
+        }
+
+        .colSet {
+            width: 15%;
+            height: 100%;
+            left: 0%;
+            position: relative;
+            display: inline;
+        }
+        #search {
+            position: relative;
+            left: 80%;
+            width: 20%;
+            height: 25px;
+            margin: 15px;
+        }
+        #chartshow{
+            width: 100%;
+            left: 0%;
+            top:0%;
+            padding: 5px;
+            min-height: 500px;
+            background-color: #FFFFF0;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            position: relative;
+        }
+        .set_menu{
+            width: 20%;
+            top:0%;
+            padding: 5px;
+            min-height: 700px;
+            display: inline;
+            float: left;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+            position: relative;
+        }
+        .sets{
+            display: block;
+            float: left;
+            width: 90%;
+            min-height: 20px;
+            margin: 1px;
+            padding: 1px;
+            list-style: none;
+            margin-bottom: 10px;
+            -moz-user-select: none;
+            user-select: none;
+            text-indent: 10px;
+            position: relative;
+        }
+        .sets1{
+            display: block;
+            float: left;
+            min-width: 30%;
+            height: 20px;
+            margin: 1px;
+            padding: 1px;
+            list-style: none;
+            margin-bottom: 10px;
+            -moz-user-select: none;
+            user-select: none;
+            text-indent: 10px;
+            position: relative;
+        }
+        .sets2{
+            display: block;
+            float: left;
+            min-width: 60%;
+            height: 20px;
+            margin: 1px;
+            padding: 1px;
+            list-style: none;
+            margin-bottom: 10px;
+            -moz-user-select: none;
+            user-select: none;
+            text-indent: 10px;
+            position: relative;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div style="width: 77%; height: 1000px; display: inline; float: left;">
+        <div id="main">
+            <div class="col" style="display: none;">unrender-cols!</div>
+        </div>
+        <div class="ele">Name</div>
+        <div class="object" id="name"></div>
+        <div class="ele">Caculation</div>
+        <div class="object" id="caculation"></div>
+        <div class="ele">Rule<button onclick="add_rule()" style="position: relative; left:5%;">Add "OR"</button><button onclick="reduce_rule()" style="position: relative; left:7%">Remove "OR"</button></div>
+        <div class="object" id="rule_0"></div>
+        <div class="ele"><button id="search" onclick="search()">search</button></div>
+        <div class="ele"><div id="chartshow"></div></div>
+    </div>
+    <div class="set_menu" id="basic_set">
+        <div class="sets" name="area_title" style="font-weight: bold;">dataSource Setting:</div>
+        <button class="sets" style="margin-top: 15px" id="bsb" onclick="save_basic(this)">Save</button>
+        <div class="sets" name="split" style="border-top: 1px dotted #555; font-weight: bold;">Column Setting:</div>
+        
+    </div>
+    <script src="plug_form.js"></script>
+    <script src="column_set.js"></script>
+    <script src="dataInsert.js"></script>
+    <script src="dataVis.js"></script>
+    <script>
+        //配置拖拽组件
+        plug_form("main", "object");
+        //刷新清空session缓存
+        window.onbeforeunload = function (e){
+            window.sessionStorage.clear();
+        }
+    </script>
+</body>
+</html>
